@@ -1,0 +1,27 @@
+---
+- name: A few basic filters
+  hosts: localhost
+  gather_facts: no
+
+  vars:
+          jarlist: [1,1,1,1,1,5]
+          repeatlist: [1,2,2,2,4,4,4,4,9,9,9,9]
+          repeat2list: [5,5,5,5,5,6,7]
+          complexlist: [6,7,8,9,[10,22,55],87]
+
+  tasks:
+          - name: the min filter        
+            debug:
+                    msg: "show me the larget number in the list: '{{ jarlist|min }}'"
+          - name: the flatten filter
+            debug:
+                    msg: "flatten a list: '{{ complexlist|flatten }}'"
+          - name: grab the unique set form the list
+            debug:
+                    msg: "the unique values are: '{{ repeatlist|unique }}'"
+          - name: show the diff of two lists
+            debug:
+                    msg: "the diff are: '{{ repeatlist|difference(repeat2list) }}'"
+          - name: snooze our Ansible script
+            debug:
+                    msg: "{{ sleeptime|default(10) }}"

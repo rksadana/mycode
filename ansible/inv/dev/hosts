@@ -6,4 +6,9 @@ zoidberg ansible_host=10.10.2.5 ansible_ssh_user=zoidberg
 
 ; exercise to define variables
 [planet-express:vars]
-engines=darkmatter
+;engines=darkmatter
+enginetype=darkmatter
+weapontype="rubber chicken"
+pecargo=pizza
+shipprice=22000
+
